@@ -31,6 +31,7 @@ for d in datasets:
             os.chdir(pwd + '/' + p)
             output = subprocess.check_output(['./mainProgram',d])
             output = output.decode('utf-8')
+            print(output)
             output = output.split('\n')
             stats = []
             for o in output:

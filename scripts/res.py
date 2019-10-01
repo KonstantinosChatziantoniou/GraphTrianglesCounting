@@ -10,7 +10,9 @@ stats = {}
 stats['cuda'] = []
 stats['serial'] = []
 stats['cilk'] = []
-stats['matlab'] = [4, 10 ,12]
+stats['matlab'] = [3.3, 4.43 ,1.6]
+
+stats['cuda960'] = [0.07 + 0.08, 0.1 + 0.39 ,0.1 + 0.47]
 
 # read cuda
 for d in datasets:
@@ -38,8 +40,8 @@ for d in datasets:
 
 print(stats)
 
-df = pandas.DataFrame({'cuda': stats['cuda'], 'serial':stats['serial'], 'cilk': stats['cilk'], 'matlab':stats['matlab']}, index=datasets)
-a = df.plot.bar( rot=0, title='Min execution times')
+df = pandas.DataFrame({'cuda': stats['cuda'], 'serial':stats['serial'], 'cilk': stats['cilk'],'cuda960': stats['cuda960'],'matlab':stats['matlab']}, index=datasets)
+a = df.plot.bar( rot=0, title='Mean execution times')
 a.set_xlabel('dataset')
 a.set_ylabel('sec')
 print(df)
@@ -52,7 +54,8 @@ stats = {}
 stats['cuda'] = []
 stats['serial'] = []
 stats['cilk'] = []
-stats['matlab'] = [4, 10 ,12]
+stats['matlab'] = [3.3, 4.43 ,1.6]
+stats['cuda960'] = [0.07 + 0.08, 0.1 + 0.39 ,0.1 + 0.47]
 
 # read cuda
 for d in datasets:
@@ -81,7 +84,7 @@ for d in datasets:
 
 print(stats)
 
-df = pandas.DataFrame({'cuda': stats['cuda'], 'serial':stats['serial'], 'cilk': stats['cilk']}, index=datasets)
+df = pandas.DataFrame({'cuda': stats['cuda'], 'serial':stats['serial'], 'cilk': stats['cilk'],'cuda960': stats['cuda960'],'matlab':stats['matlab']}, index=datasets)
 a = df.plot.bar( rot=0, title='Min execution times')
 a.set_xlabel('dataset')
 a.set_ylabel('sec')
