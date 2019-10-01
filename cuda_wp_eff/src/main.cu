@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/time.h>
-#include "/opt/intel/compilers_and_libraries_2019.3.199/linux/compiler/include/cilk/cilk.h"
 #include <cuda.h>
 #include <cuda_runtime_api.h>
 //https://proofwiki.org/wiki/Product_of_Triangular_Matrices
