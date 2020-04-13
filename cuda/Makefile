@@ -1,12 +1,12 @@
 CC = nvcc
-CFLAGS = -O2  -arch=sm_35 #--default-stream per-thread  -Xcompiler -fopenmp -lcuda -lcudart 
+CFLAGS = -O2  # -arch=sm_35 #--default-stream per-thread  -Xcompiler -fopenmp -lcuda -lcudart 
 #-std=c99 --default-stream per-thread
 LIBS = -lm #-Wall -Wextra
 OBJDIR = ./bin
 HDRDIR = ./headers
 SRCDIR = ./src
 
-_OBJ =  main.o qsortSec.o
+_OBJ =  main.o
 OBJ = $(patsubst %, $(OBJDIR)/%, $(_OBJ))
 
 _DEPS = 
@@ -27,7 +27,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c $(DEPS)
 #bin/cudaWrapper.o: src/cudaWrapper.cu headers/cudaWrapper.h
 #	nvcc  -c -o bin/cudaWrapper.o src/cudaWrapper.cu 
 clean:
-	rm -rf ./*.csv; rm -rf ./bin/*.o
+	rm -rf ./*.csv; rm -rf ./bin/*.o; rm -rf mainProgram
 
 clear: 
-	rm -rf ./*.csv; rm -rf ./PythonCheck/*.csv
+	rm -rf ./*.csv; 

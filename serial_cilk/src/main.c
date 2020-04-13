@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/time.h>
-#include "/opt/intel/compilers_and_libraries_2019.3.199/linux/compiler/include/cilk/cilk.h"
+#include "cilk/cilk.h"
 
 int max_per_row = 0;
 
@@ -51,13 +51,13 @@ int* COOtoCSR(int rows, int nnz, int* row_indx){
     return csr_rows;
 }
 
-int* CSRtoCSC(int rows, int nnz, int* row_indx, int* col_indx){
-    int* temp_col_indx = (int*)malloc(nnz*sizeof(int));
-    memcpy(temp_col_indx,col_indx,nnz*sizeof(int));
-    qsort_seq(temp_col_indx,row_indx,nnz);
-    free(temp_col_indx);
-    return COOtoCSR(rows,nnz,col_indx);
-}
+// int* CSRtoCSC(int rows, int nnz, int* row_indx, int* col_indx){
+//     int* temp_col_indx = (int*)malloc(nnz*sizeof(int));
+//     memcpy(temp_col_indx,col_indx,nnz*sizeof(int));
+//     qsort_seq(temp_col_indx,row_indx,nnz);
+//     free(temp_col_indx);
+//     return COOtoCSR(rows,nnz,col_indx);
+// }
 
 void printTime(struct timeval start, struct timeval end, char* str){
     unsigned long ss,es,su,eu,s,u;

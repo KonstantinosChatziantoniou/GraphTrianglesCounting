@@ -1,20 +1,20 @@
 CC = gcc
 CFLAGS = -fcilkplus -Ofast -std=c99
-LIBS = -lm -Wall -Wextra -lblas 
+LIBS = -lm -Wall -Wextra 
 OBJDIR = ./bin
 HDRDIR = ./headers
 SRCDIR = ./src
 
 
 ##CHANGE HERE
-_OBJ =  main.o qsortSec.o
+_OBJ =  main.o
 OBJ = $(patsubst %, $(OBJDIR)/%, $(_OBJ))
 
 
 
 
 ##CHANGE HERE
-_DEPS = qsortSec.h
+_DEPS =
 DEPS = $(patsubst %, $(HDRDIR)/%, $(_DEPS))
 
 
